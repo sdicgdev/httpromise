@@ -22,6 +22,7 @@
   },
   "keywords": [],
   "scripts": {},
+  "main": "./httpromise",
   "dependencies": {
     "q-io": "~1.11.6",
     "querystring": "~0.2.0",
