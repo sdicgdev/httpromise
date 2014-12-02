@@ -90,10 +90,10 @@ resource.prototype.makeRequest = function(verb,path,data) {
     }
     request.path = request.path+"?"+querystring.stringify(data.query);
   }
-  if(data.body){
-    request.body = [processByMimeType.request(request, data.body)];
-  }
 
+  if(typeof data.body == 'object'){
+    request.body = JSON.stringify(data.body);
+  }
 
   rp_request.uri     = request.ssl ? 'https://' : 'http://';
   rp_request.uri     = rp_request.uri + request.host+":"+request.port+request.path;
@@ -104,8 +104,8 @@ resource.prototype.makeRequest = function(verb,path,data) {
     .then(function(response){
       return response;
     })
-    .fail(function(err){
-      console.log("line 108", "httpromise.js");
+    .catch(function(err){
+      console.log("httpromise.js", "line 108");
       console.log(err);
     });
 }
