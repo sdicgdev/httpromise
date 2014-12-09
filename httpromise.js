@@ -70,7 +70,7 @@ resource.prototype.authorize = function(auth){
 resource.prototype.makeRequest = function(verb,path,data) {
   var headers
     , request = extend({}, this.requestBase)
-    , rp_request = {followAllRedirects: true};
+    , rp_request = {followAllRedirects: true, resolveWithFullResponse: true};
   request.headers = request.headers.request;
   request.path    = request.path+path;
   request.method  = verb;
