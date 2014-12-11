@@ -98,7 +98,7 @@ resource.prototype.makeRequest = function(verb,path,data) {
   rp_request.uri     = request.ssl ? 'https://' : 'http://';
   rp_request.uri     = rp_request.uri + request.host+":"+request.port+request.path;
   rp_request.headers = request.headers;
-  rp_request.data    = request.body;
+  rp_request.body    = request.body;
   rp_request.method  = request.method;
   return https(rp_request)
     .then(function(response){
