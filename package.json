@@ -1,7 +1,7 @@
 {
   "name": "httpromise",
   "author": "Evan Short",
-  "description": "simple, stupid, agnostic integration testing for APIs and the mysql databases that serve them",
+  "description": "config file oriented wrapper on top of request-promise",
   "version": "0.0.1",
   "preferGlobal": true,
   "repository": {
