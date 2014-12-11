@@ -68,6 +68,18 @@ resource.prototype.authorize = function(auth){
 
 
 resource.prototype.makeRequest = function(verb,path,data) {
+  var rp_request = this.buildRequest(verb, path, data);
+  return https(rp_request)
+    .then(function(response){
+      return response;
+    })
+    .catch(function(err){
+      console.log("httpromise.js", "line 108");
+      console.log(err);
+    });
+}
+
+resource.prototype.buildRequest = function(verb,path,data) {
   var headers
     , request = extend({}, this.requestBase)
     , rp_request = {followAllRedirects: true, resolveWithFullResponse: true};
@@ -100,14 +112,8 @@ resource.prototype.makeRequest = function(verb,path,data) {
   rp_request.headers = request.headers;
   rp_request.body    = request.body;
   rp_request.method  = request.method;
-  return https(rp_request)
-    .then(function(response){
-      return response;
-    })
-    .catch(function(err){
-      console.log("httpromise.js", "line 108");
-      console.log(err);
-    });
+
+  return rp_request
 }
 
 resource.prototype.post = function(path,data){
