@@ -2,7 +2,7 @@
   "name": "httpromise",
   "author": "Evan Short",
   "description": "config file oriented wrapper on top of request-promise",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "preferGlobal": true,
   "repository": {
     "type": "git",
