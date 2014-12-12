@@ -74,8 +74,11 @@ resource.prototype.makeRequest = function(verb,path,data) {
       return response;
     })
     .catch(function(err){
-      console.log("httpromise.js", "line 108");
-      console.log(err);
+      if(err.response){
+        return err.response;
+      }else{
+        throw(err)
+      }
     });
 }
 
